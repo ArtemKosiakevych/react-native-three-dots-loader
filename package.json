@@ -1,0 +1,23 @@
+{
+  "name": "react-native-three-dots-loader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtemKosiakevych/react-native-three-dots-loader.git"
+  },
+  "keywords": [
+    "react native three dots loader",
+    "react-component",
+    "react-native",
+    "loader",
+    "animated loader",
+    "tree dots loader"
+  ],
+  "author": "Artem Kosiakevych <artem.kosiakevych@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArtemKosiakevych/react-native-three-dots-loader/issues"
+  },
+  "homepage": "https://github.com/ArtemKosiakevych/react-native-three-dots-loader"
+}
