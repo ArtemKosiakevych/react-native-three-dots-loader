@@ -13,7 +13,7 @@ Component doesn't use external libs, only `Animated` from react-native
 
 ## Usage
 
-![](./src/assets/demo.gif)
+![](./assets/demo.gif)
 
 `import Loader from 'react-native-three-dots-loader'`
 
