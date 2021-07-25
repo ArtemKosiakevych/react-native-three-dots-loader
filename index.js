@@ -14,24 +14,24 @@ export default class ThreeDotsLoader extends React.Component {
     active: 1
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.interval = setInterval(() => {
       const active = this.state.active
-      this.setState({ active: active > 2 ? 1 : active + 1})
+      this.setState({ active: active > 2 ? 1 : active + 1 })
     }, INTERVAL);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.interval)
   }
 
   render() {
-  const active = this.state.active
-   return (
-     <View style={styles.main}>
-       {dots.map(i => <Dot {...this.props} active={i === active}/>)}
-     </View>
-   )
+    const active = this.state.active
+    return (
+      <View style={styles.main}>
+        {dots.map(i => <Dot {...this.props} active={i === active} key={i} />)}
+      </View>
+    )
   }
 }
 
@@ -50,15 +50,15 @@ class Dot extends React.Component {
     this.scale = new Animated.Value(1)
   }
 
-  componentDidMount(){
+  componentDidMount() {
     if (this.props.active) this.scaleUp()
   }
 
-  componentDidUpdate(prevProps){
-    if (prevProps.active && !this.props.active){
+  componentDidUpdate(prevProps) {
+    if (prevProps.active && !this.props.active) {
       this.scaleDown()
     }
-    if (!prevProps.active && this.props.active){
+    if (!prevProps.active && this.props.active) {
       this.scaleUp()
     }
   }
@@ -83,17 +83,17 @@ class Dot extends React.Component {
     ).start()
   }
 
-  render(){
+  render() {
     const { active, size, background, activeBackground, dotMargin } = this.props
     const style = {
-      height: size, 
+      height: size,
       width: size,
       borderRadius: size / 2,
       marginHorizontal: dotMargin,
       backgroundColor: active ? activeBackground : background
     }
     return (
-      <Animated.View style={[style, {transform: [{ scale: this.scale }]}]}/>
+      <Animated.View style={[style, { transform: [{ scale: this.scale }] }]} />
     )
   }
 }
