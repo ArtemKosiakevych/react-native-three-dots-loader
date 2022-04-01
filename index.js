@@ -26,12 +26,12 @@ export default class ThreeDotsLoader extends React.Component {
   }
 
   render() {
-  const active = this.state.active
-   return (
-     <View style={styles.main}>
-       {dots.map(i => <Dot {...this.props} active={i === active}/>)}
-     </View>
-   )
+    const active = this.state.active
+    return (
+        <View style={styles.main}>
+          {dots.map(i => <Dot {...this.props} active={i === active} key={i}/>)}
+        </View>
+    )
   }
 }
 
@@ -65,35 +65,37 @@ class Dot extends React.Component {
 
   scaleDown = () => {
     Animated.timing(
-      this.scale,
-      {
-        toValue: 1,
-        duration: this.props.animationDuration,
-      }
+        this.scale,
+        {
+          toValue: 1,
+          duration: this.props.animationDuration,
+          useNativeDriver: true,
+        }
     ).start()
   }
 
   scaleUp = () => {
     Animated.timing(
-      this.scale,
-      {
-        toValue: this.props.animationScale,
-        duration: this.props.animationDuration,
-      }
+        this.scale,
+        {
+          toValue: this.props.animationScale,
+          duration: this.props.animationDuration,
+          useNativeDriver: true,
+        }
     ).start()
   }
 
   render(){
     const { active, size, background, activeBackground, dotMargin } = this.props
     const style = {
-      height: size, 
+      height: size,
       width: size,
       borderRadius: size / 2,
       marginHorizontal: dotMargin,
       backgroundColor: active ? activeBackground : background
     }
     return (
-      <Animated.View style={[style, {transform: [{ scale: this.scale }]}]}/>
+        <Animated.View style={[style, {transform: [{ scale: this.scale }]}]}/>
     )
   }
 }
